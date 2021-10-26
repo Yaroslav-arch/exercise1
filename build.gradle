@@ -20,10 +20,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-neo4j:2.5.6'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.5.6'
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.5.6'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+	testImplementation group: 'org.neo4j.test', name: 'neo4j-harness', version: '4.3.6'
+
 
 }
 

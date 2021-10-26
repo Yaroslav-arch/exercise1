@@ -1,10 +1,9 @@
 package com.example.exercise1.repositories;
 
-import com.example.exercise1.entities.Genre;
+import com.example.exercise1.entities.User;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GenresRepository extends Neo4jRepository<Genre, Long> {
-
+public interface UserRepository extends Neo4jRepository<User, Long> {
 }

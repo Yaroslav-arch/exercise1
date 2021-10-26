@@ -16,7 +16,6 @@ public class User {
     @GeneratedValue
     private Long id;
     private String nickname;
-    private String email;
 
     @Relationship(type = "RATED")
     private Set<Movie> movies;

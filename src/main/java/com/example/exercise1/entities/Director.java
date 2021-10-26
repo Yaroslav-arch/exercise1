@@ -15,8 +15,7 @@ public class Director {
     @Id
     @GeneratedValue
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String name;
 
     @Relationship(type = "DIRECTED")
     private Set<Movie> movies;
