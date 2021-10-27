@@ -6,7 +6,7 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Node
@@ -19,14 +19,14 @@ public class Movie {
     private int duration;
 
     @Relationship(type = "ACTED_IN", direction = Relationship.Direction.INCOMING)
-    private Set<Actor> actors;
+    private List<Actor> actors;
 
     @Relationship(type = "DIRECTED", direction = Relationship.Direction.INCOMING)
-    private Set<Director> directors;
+    private List<Director> directors;
 
     @Relationship(type = "RATED", direction = Relationship.Direction.INCOMING)
-    private Set<User> users;
+    private List<User> users;
 
     @Relationship(type = "IN_GENRE")
-    private Set<Genre> genres;
+    private List<Genre> genres;
 }

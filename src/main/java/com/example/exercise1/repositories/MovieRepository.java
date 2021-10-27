@@ -1,19 +1,20 @@
 package com.example.exercise1.repositories;
 
-import com.example.exercise1.entities.Actor;
 import com.example.exercise1.entities.Genre;
 import com.example.exercise1.entities.Movie;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
+import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface MovieRepository extends Neo4jRepository<Movie,Long>{
+public interface MovieRepository extends Neo4jRepository<Movie, Long> {
 
     Movie getMovieByName(String name);
 
-    List<Movie> getAllMoviesByActors(Actor actor);
+    @Query("MATCH (a:Actor{name:$actorsName})-[:ACTED_IN]->(m:Movie) RETURN m")
+    List<Movie> getAllMoviesByActorsName(String actorsName);
 
     List<Movie> getAllMoviesByGenres(Genre genre);
 
