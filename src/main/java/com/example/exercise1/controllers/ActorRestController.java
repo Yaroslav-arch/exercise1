@@ -1,7 +1,7 @@
 package com.example.exercise1.controllers;
 
 import com.example.exercise1.entities.Actor;
-import com.example.exercise1.service.ActorService;
+import com.example.exercise1.services.ActorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

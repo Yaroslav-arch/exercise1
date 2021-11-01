@@ -1,4 +1,4 @@
-package com.example.exercise1.service;
+package com.example.exercise1.services;
 
 import com.example.exercise1.entities.Genre;
 import com.example.exercise1.entities.Movie;
@@ -30,7 +30,8 @@ public class MovieService {
         return movieRepository.getAllMoviesByActorsName(actorName);
     }
 
-    public List<Movie> getAllMoviesByGenre(Genre genre) {
-        return movieRepository.getAllMoviesByGenres(genre);
+    public List<Movie> getAllMoviesByGenreName(String genreName) {
+        return movieRepository.getAllMoviesByGenreName(genreName);
     }
+
 }

@@ -1,6 +1,5 @@
 package com.example.exercise1.repositories;
 
-import com.example.exercise1.entities.Genre;
 import com.example.exercise1.entities.Movie;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
@@ -16,6 +15,7 @@ public interface MovieRepository extends Neo4jRepository<Movie, Long> {
     @Query("MATCH (a:Actor{name:$actorsName})-[:ACTED_IN]->(m:Movie) RETURN m")
     List<Movie> getAllMoviesByActorsName(String actorsName);
 
-    List<Movie> getAllMoviesByGenres(Genre genre);
+    @Query("MATCH (g:Genre{name:$genreName})<-[:IN_GENRE]-(m:Movie) RETURN m")
+    List<Movie> getAllMoviesByGenreName(String genreName);
 
 }

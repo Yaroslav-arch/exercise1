@@ -1,8 +1,8 @@
 package com.example.exercise1.controllers;
 
 import com.example.exercise1.entities.Movie;
-import com.example.exercise1.service.GenreService;
-import com.example.exercise1.service.MovieService;
+import com.example.exercise1.services.GenreService;
+import com.example.exercise1.services.MovieService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -38,6 +38,6 @@ public class MovieRestController {
 
     @GetMapping("/genre/{genreName}")
     public List<Movie> getMoviesByGenre(@PathVariable String genreName) {
-        return movieService.getAllMoviesByGenre(genreService.getGenreByName(genreName));
+        return movieService.getAllMoviesByGenreName(genreName);
     }
 }

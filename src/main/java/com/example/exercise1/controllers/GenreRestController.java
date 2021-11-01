@@ -1,7 +1,7 @@
 package com.example.exercise1.controllers;
 
 import com.example.exercise1.entities.Genre;
-import com.example.exercise1.service.GenreService;
+import com.example.exercise1.services.GenreService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

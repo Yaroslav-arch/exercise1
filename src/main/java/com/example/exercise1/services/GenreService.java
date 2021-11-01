@@ -1,4 +1,4 @@
-package com.example.exercise1.service;
+package com.example.exercise1.services;
 
 import com.example.exercise1.entities.Genre;
 import com.example.exercise1.repositories.GenreRepository;
