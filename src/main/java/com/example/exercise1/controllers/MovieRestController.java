@@ -3,7 +3,12 @@ package com.example.exercise1.controllers;
 import com.example.exercise1.entities.Movie;
 import com.example.exercise1.services.GenreService;
 import com.example.exercise1.services.MovieService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 import javax.inject.Inject;
 import java.util.List;
