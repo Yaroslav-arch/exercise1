@@ -1,10 +1,16 @@
 package com.example.exercise1.controllers;
 
 import com.example.exercise1.entities.Movie;
-import com.example.exercise1.service.ActorService;
-import com.example.exercise1.service.MovieService;
-import org.springframework.web.bind.annotation.*;
+import com.example.exercise1.services.GenreService;
+import com.example.exercise1.services.MovieService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
+
+import javax.inject.Inject;
 import java.util.List;
 
 @RestController
@@ -12,11 +18,12 @@ import java.util.List;
 public class MovieRestController {
 
     private final MovieService movieService;
-    private final ActorService actorService;
+    private final GenreService genreService;
 
-    public MovieRestController(MovieService movieService, ActorService actorService) {
+    @Inject
+    public MovieRestController(MovieService movieService, GenreService genreService) {
         this.movieService = movieService;
-        this.actorService = actorService;
+        this.genreService = genreService;
     }
 
     @GetMapping("/all")
@@ -24,13 +31,18 @@ public class MovieRestController {
         return movieService.getAllMovies();
     }
 
-    @GetMapping("/{movieName}")
+    @GetMapping("/movie/{movieName}")
     public Movie getMovieByName(@PathVariable String movieName) {
         return movieService.getMovieByName(movieName);
     }
 
-    @PostMapping("/{actorName}")
-    public List<Movie> getAllMoviesByActor(@PathVariable String actorName) {
-        return movieService.getAllMoviesByActor(actorService.getActorByName(actorName));
+    @GetMapping("/actor")
+    public List<Movie> getAllMoviesByActorsName(@RequestParam String actorName) {
+        return movieService.getAllMoviesByActorsName(actorName);
+    }
+
+    @GetMapping("/genre/{genreName}")
+    public List<Movie> getMoviesByGenre(@PathVariable String genreName) {
+        return movieService.getAllMoviesByGenreName(genreName);
     }
 }

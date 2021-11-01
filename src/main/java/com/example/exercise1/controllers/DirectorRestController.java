@@ -1,12 +1,12 @@
 package com.example.exercise1.controllers;
 
 import com.example.exercise1.entities.Director;
-import com.example.exercise1.service.DirectorService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.exercise1.services.DirectorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.inject.Inject;
 import java.util.List;
 
 @RestController
@@ -15,7 +15,7 @@ public class DirectorRestController {
 
     private DirectorService directorService;
 
-    @Autowired
+    @Inject
     public DirectorRestController(DirectorService directorService) {
         this.directorService = directorService;
     }

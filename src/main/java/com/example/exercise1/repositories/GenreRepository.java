@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface GenreRepository extends Neo4jRepository<Genre, Long> {
 
+    Genre getGenreByName(String name);
 }
