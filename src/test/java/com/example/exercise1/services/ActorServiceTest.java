@@ -4,8 +4,8 @@ import com.example.exercise1.entities.Actor;
 import com.example.exercise1.entities.Genre;
 import com.example.exercise1.entities.Movie;
 import com.example.exercise1.repositories.ActorRepository;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,10 +22,10 @@ public class ActorServiceTest {
     private ActorService actorService;
 
     @MockBean
-    private ActorRepository actorRepository;
+    private static ActorRepository actorRepository;
 
-    @Before
-    public void setUp() {
+    @BeforeAll
+    static void setUp() {
         Actor actor = new Actor();
         actor.setName("Mel Gibson");
         List<Actor> actorList = new ArrayList<>();
@@ -54,7 +54,6 @@ public class ActorServiceTest {
     @Test
     public void getAllActorsByMovieName() {
         String movieName = "Mad Max";
-
         Assertions.assertNotNull(actorService.getAllActorsByMovieName(movieName));
     }
 
