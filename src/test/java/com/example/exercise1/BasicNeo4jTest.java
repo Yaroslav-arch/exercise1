@@ -30,7 +30,7 @@ public abstract class BasicNeo4jTest {
         registry.add("spring.neo4j.authentication.password", () -> null);
     }
 
-    @AfterAll
+//    @AfterAll
     static void stopNeo4j() {
 
         embeddedDatabaseServer.close();

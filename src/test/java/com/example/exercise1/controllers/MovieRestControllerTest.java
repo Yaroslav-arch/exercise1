@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@DataNeo4jTest
+//@DataNeo4jTest
 class MovieRestControllerTest extends BasicNeo4jTest {
 
     @Inject
