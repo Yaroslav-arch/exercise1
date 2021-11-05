@@ -11,6 +11,7 @@ sourceCompatibility = '11'
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
+
 	}
 }
 
@@ -26,8 +27,7 @@ dependencies {
 		all*.exclude module : 'logback-classic'
 	}
 	implementation 'javax.inject:javax.inject:1'
-	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
-	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.12'
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'

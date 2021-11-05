@@ -19,8 +19,13 @@ class ActorNeo4jTest extends BasicNeo4jTest {
     public void getAllActorsByMovieNameTest() {
 
         String movieName = "Matrix";
+        String actor1Name = "Keanu Reeves";
+        String actor2Name = "Hugo Weaving";
         List<Actor> actors = actorRepository.getAllActorsByMovieName(movieName);
+
         Assertions.assertEquals(actors.size(), 2);
         Assertions.assertNotEquals(actors.get(0), actors.get(1));
+        Assertions.assertTrue(actors.stream().map(Actor::getName).anyMatch(actor1Name::equals));
+        Assertions.assertTrue(actors.stream().map(Actor::getName).anyMatch(actor2Name::equals));
     }
 }

@@ -1,0 +1,217 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /users/all:
+    get:
+      tags:
+      - user-rest-controller
+      operationId: getAllUsers
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+  /movies/movie/{movieName}:
+    get:
+      tags:
+      - movie-rest-controller
+      operationId: getMovieByName
+      parameters:
+      - name: movieName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Movie'
+  /movies/genre/{genreName}:
+    get:
+      tags:
+      - movie-rest-controller
+      operationId: getMoviesByGenre
+      parameters:
+      - name: genreName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+  /movies/all:
+    get:
+      tags:
+      - movie-rest-controller
+      operationId: getAllMovies
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+  /movies/actor:
+    get:
+      tags:
+      - movie-rest-controller
+      operationId: getAllMoviesByActorsName
+      parameters:
+      - name: actorName
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+  /genres/all:
+    get:
+      tags:
+      - genre-rest-controller
+      operationId: getAllGenres
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Genre'
+  /directors/all:
+    get:
+      tags:
+      - director-rest-controller
+      operationId: getAllDirectors
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Director'
+  /actors/{movieName}:
+    get:
+      tags:
+      - actor-rest-controller
+      operationId: getAllActorsByMovieName
+      parameters:
+      - name: movieName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Actor'
+  /actors/all:
+    get:
+      tags:
+      - actor-rest-controller
+      operationId: getAllActors
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Actor'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        nickname:
+          type: string
+    Actor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Director:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Genre:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    Movie:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        duration:
+          type: integer
+          format: int32
+        actors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Actor'
+        directors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Director'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genre'
