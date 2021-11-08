@@ -1,7 +1,7 @@
 package com.example.exercise1.controllers;
 
-import com.example.exercise1.entities.entitiesNeo4j.Director;
-import com.example.exercise1.services.servicesNeo4j.DirectorService;
+import com.example.exercise1.entities.dto.DirectorDTO;
+import com.example.exercise1.services.MainService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,16 +13,16 @@ import java.util.List;
 @RequestMapping("/directors")
 public class DirectorRestController {
 
-    private DirectorService directorService;
+    private final MainService mainService;
 
     @Inject
-    public DirectorRestController(DirectorService directorService) {
-        this.directorService = directorService;
+    public DirectorRestController(MainService mainService) {
+        this.mainService = mainService;
     }
 
 
     @GetMapping("/all")
-    public List<Director> getAllDirectors() {
-        return directorService.getAllDirectors();
+    public List<DirectorDTO> getAllDirectors() {
+        return mainService.getAllDirectors();
     }
 }

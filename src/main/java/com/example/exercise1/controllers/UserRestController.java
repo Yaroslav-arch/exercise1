@@ -1,7 +1,7 @@
 package com.example.exercise1.controllers;
 
-import com.example.exercise1.entities.entitiesNeo4j.User;
-import com.example.exercise1.services.servicesNeo4j.UserService;
+import com.example.exercise1.entities.dto.UserDTO;
+import com.example.exercise1.services.MainService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,15 +13,15 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserRestController {
 
-    private final UserService userService;
+    private final MainService mainService;
 
     @Inject
-    public UserRestController(UserService userService) {
-        this.userService = userService;
+    public UserRestController(MainService mainService) {
+        this.mainService = mainService;
     }
 
     @GetMapping("/all")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public List<UserDTO> getAllUsers() {
+        return mainService.getAllUsers();
     }
 }

@@ -1,12 +1,14 @@
 package com.example.exercise1.services;
 
-import com.example.exercise1.entities.entitiesSQL.*;
+import com.example.exercise1.entities.dto.*;
 import com.example.exercise1.services.servicesSQL.*;
+import com.example.exercise1.utils.DTOConverterSQL;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "true")
@@ -17,54 +19,57 @@ public class SQLMainService implements MainService{
     private final GenreService genreService;
     private final MovieService movieService;
     private final UserService userService;
+    private final DTOConverterSQL converter;
 
 
     @Inject
-    public SQLMainService(ActorService actorService, DirectorService directorService, GenreService genreService, MovieService movieService, UserService userService) {
+    public SQLMainService(ActorService actorService, DirectorService directorService, GenreService genreService, MovieService movieService, UserService userService, DTOConverterSQL converter) {
         this.actorService = actorService;
         this.directorService = directorService;
         this.genreService = genreService;
         this.movieService = movieService;
         this.userService = userService;
+        this.converter = converter;
     }
 
-    public List<Actor> getAllActors() {
-        return actorService.getAllActors();
+    public List<ActorDTO> getAllActors() {
+        return actorService.getAllActors().stream().map(converter::fromActorToDTO).collect(Collectors.toList());
     }
 
-    public List<Actor> getAllActorsByMovieName(String movieName) {
-        return actorService.getAllActorsByMovieName(movieName);
+    public List<ActorDTO> getAllActorsByMovieName(String movieName) {
+        return actorService.getAllActorsByMovieName(movieName).stream().map(converter::fromActorToDTO).collect(Collectors.toList());
+
     }
 
-    public List<Director> getAllDirectors() {
-        return directorService.getAllDirectors();
+    public List<DirectorDTO> getAllDirectors() {
+        return directorService.getAllDirectors().stream().map(converter::fromDirectorToDTO).collect(Collectors.toList());
     }
 
-    public List<Genre> getAllGenres(){
-        return genreService.getAllGenres();
+    public List<GenreDTO> getAllGenres() {
+        return genreService.getAllGenres().stream().map(converter::fromGenreToDTO).collect(Collectors.toList());
     }
 
-    public Genre getGenreByName(String name){
-        return genreService.getGenreByName(name);
+    public GenreDTO getGenreByName(String name) {
+        return converter.fromGenreToDTO(genreService.getGenreByName(name));
     }
 
-    public List<Movie> getAllMovies() {
-        return movieService.getAllMovies();
+    public List<MovieDTO> getAllMovies() {
+        return movieService.getAllMovies().stream().map(converter::fromMovieToDTO).collect(Collectors.toList());
     }
 
-    public Movie getMovieByName(String name) {
-        return movieService.getMovieByName(name);
+    public MovieDTO getMovieByName(String name) {
+        return converter.fromMovieToDTO(movieService.getMovieByName(name));
     }
 
-    public List<Movie> getAllMoviesByActorsName(String actorName) {
-        return movieService.getAllMoviesByActorsName(actorName);
+    public List<MovieDTO> getAllMoviesByActorsName(String actorName) {
+        return movieService.getAllMoviesByActorsName(actorName).stream().map(converter::fromMovieToDTO).collect(Collectors.toList());
     }
 
-    public List<Movie> getAllMoviesByGenreName(String genreName) {
-        return movieService.getAllMoviesByGenreName(genreName);
+    public List<MovieDTO> getAllMoviesByGenreName(String genreName) {
+        return movieService.getAllMoviesByGenreName(genreName).stream().map(converter::fromMovieToDTO).collect(Collectors.toList());
     }
 
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers().stream().map(converter::fromUserToDTO).collect(Collectors.toList());
     }
 }

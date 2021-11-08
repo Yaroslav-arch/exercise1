@@ -1,7 +1,6 @@
 package com.example.exercise1.services;
 
-import com.example.exercise1.entities.entitiesNeo4j.*;
-import com.example.exercise1.entities.entitiesSQL.*;
+import com.example.exercise1.entities.dto.*;
 
 import org.springframework.stereotype.Service;
 
@@ -9,23 +8,23 @@ import java.util.List;
 
 @Service
 public interface MainService {
-    public List<com.example.exercise1.entities.entitiesSQL.Actor> getAllActors();
+    List<ActorDTO> getAllActors();
 
-    public List<Actor> getAllActorsByMovieName(String movieName);
+    List<ActorDTO> getAllActorsByMovieName(String movieName);
 
-    public List<Director> getAllDirectors();
+    List<DirectorDTO> getAllDirectors();
 
-    public List<Genre> getAllGenres();
+    List<GenreDTO> getAllGenres();
 
-    public Genre getGenreByName(String name);
+    GenreDTO getGenreByName(String name);
 
-    public List<Movie> getAllMovies();
+    List<MovieDTO> getAllMovies();
 
-    public Movie getMovieByName(String name);
+    MovieDTO getMovieByName(String name);
 
-    public List<Movie> getAllMoviesByActorsName(String actorName);
+    List<MovieDTO> getAllMoviesByActorsName(String actorName);
 
-    public List<Movie> getAllMoviesByGenreName(String genreName);
+    List<MovieDTO> getAllMoviesByGenreName(String genreName);
 
-    public List<User> getAllUsers();
+    List<UserDTO> getAllUsers();
 }

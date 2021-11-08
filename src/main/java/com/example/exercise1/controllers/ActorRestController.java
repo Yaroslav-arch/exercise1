@@ -1,8 +1,7 @@
 package com.example.exercise1.controllers;
 
-import com.example.exercise1.entities.entitiesNeo4j.Actor;
+import com.example.exercise1.entities.dto.ActorDTO;
 import com.example.exercise1.services.MainService;
-import com.example.exercise1.services.servicesNeo4j.ActorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +22,12 @@ public class ActorRestController {
     }
 
     @GetMapping("/all")
-    public List<Actor> getAllActors() {
+    public List<ActorDTO> getAllActors() {
         return mainService.getAllActors();
     }
 
     @GetMapping("/{movieName}")
-    public List<Actor> getAllActorsByMovieName(@PathVariable String movieName) {
+    public List<ActorDTO> getAllActorsByMovieName(@PathVariable String movieName) {
         return mainService.getAllActorsByMovieName(movieName);
     }
 

@@ -1,14 +1,9 @@
 package com.example.exercise1.controllers;
 
-import com.example.exercise1.entities.entitiesNeo4j.Movie;
+import com.example.exercise1.entities.dto.MovieDTO;
 import com.example.exercise1.exceptions.MovieRestControllerNullException;
-import com.example.exercise1.services.servicesNeo4j.MovieService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import com.example.exercise1.services.MainService;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -18,32 +13,32 @@ import java.util.Objects;
 @RequestMapping("/movies")
 public class MovieRestController {
 
-    private final MovieService movieService;
+    private final MainService mainService;
 
     @Inject
-    public MovieRestController(MovieService movieService) {
-        this.movieService = movieService;
+    public MovieRestController(MainService mainService) {
+        this.mainService = mainService;
     }
 
     @GetMapping("/all")
-    public List<Movie> getAllMovies() {
-        return movieService.getAllMovies();
+    public List<MovieDTO> getAllMovies() {
+        return mainService.getAllMovies();
     }
 
     @GetMapping("/movie/{movieName}")
-    public Movie getMovieByName(@PathVariable String movieName) throws MovieRestControllerNullException {
+    public MovieDTO getMovieByName(@PathVariable String movieName) throws MovieRestControllerNullException {
         if (!Objects.equals(movieName, "null")) {
-            return movieService.getMovieByName(movieName);
+            return mainService.getMovieByName(movieName);
         } else throw new MovieRestControllerNullException("Null can't be the name of the movie");
     }
 
     @GetMapping("/actor")
-    public List<Movie> getAllMoviesByActorsName(@RequestParam String actorName) {
-        return movieService.getAllMoviesByActorsName(actorName);
+    public List<MovieDTO> getAllMoviesByActorsName(@RequestParam String actorName) {
+        return mainService.getAllMoviesByActorsName(actorName);
     }
 
     @GetMapping("/genre/{genreName}")
-    public List<Movie> getMoviesByGenre(@PathVariable String genreName) {
-        return movieService.getAllMoviesByGenreName(genreName);
+    public List<MovieDTO> getMoviesByGenre(@PathVariable String genreName) {
+        return mainService.getAllMoviesByGenreName(genreName);
     }
 }
