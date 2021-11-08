@@ -1,6 +1,6 @@
-package com.example.exercise1.repositories;
+package com.example.exercise1.repositories.neo4jrepositories;
 
-import com.example.exercise1.entities.Movie;
+import com.example.exercise1.entities.entitiesNeo4j.Movie;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.stereotype.Repository;

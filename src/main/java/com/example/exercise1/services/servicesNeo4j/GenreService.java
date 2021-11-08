@@ -1,7 +1,7 @@
-package com.example.exercise1.services;
+package com.example.exercise1.services.servicesNeo4j;
 
-import com.example.exercise1.entities.Genre;
-import com.example.exercise1.repositories.GenreRepository;
+import com.example.exercise1.entities.entitiesNeo4j.Genre;
+import com.example.exercise1.repositories.neo4jrepositories.GenreRepository;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;

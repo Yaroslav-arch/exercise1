@@ -1,9 +1,10 @@
 package com.example.exercise1.services;
 
-import com.example.exercise1.entities.Actor;
-import com.example.exercise1.entities.Genre;
-import com.example.exercise1.entities.Movie;
-import com.example.exercise1.repositories.MovieRepository;
+import com.example.exercise1.entities.entitiesNeo4j.Actor;
+import com.example.exercise1.entities.entitiesNeo4j.Genre;
+import com.example.exercise1.entities.entitiesNeo4j.Movie;
+import com.example.exercise1.repositories.neo4jrepositories.MovieRepository;
+import com.example.exercise1.services.servicesNeo4j.MovieService;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

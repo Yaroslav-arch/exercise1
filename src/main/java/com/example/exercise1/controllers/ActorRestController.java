@@ -1,7 +1,8 @@
 package com.example.exercise1.controllers;
 
-import com.example.exercise1.entities.Actor;
-import com.example.exercise1.services.ActorService;
+import com.example.exercise1.entities.entitiesNeo4j.Actor;
+import com.example.exercise1.services.MainService;
+import com.example.exercise1.services.servicesNeo4j.ActorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,21 +14,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/actors")
 public class ActorRestController {
-    private ActorService actorService;
+
+    private final MainService mainService;
 
     @Inject
-    public ActorRestController(ActorService actorService) {
-        this.actorService = actorService;
+    public ActorRestController(MainService mainService) {
+        this.mainService = mainService;
     }
 
     @GetMapping("/all")
     public List<Actor> getAllActors() {
-        return actorService.getAllActors();
+        return mainService.getAllActors();
     }
 
     @GetMapping("/{movieName}")
     public List<Actor> getAllActorsByMovieName(@PathVariable String movieName) {
-        return actorService.getAllActorsByMovieName(movieName);
+        return mainService.getAllActorsByMovieName(movieName);
     }
 
 }

@@ -1,7 +1,7 @@
-package com.example.exercise1.services;
+package com.example.exercise1.services.servicesNeo4j;
 
-import com.example.exercise1.entities.Director;
-import com.example.exercise1.repositories.DirectorRepository;
+import com.example.exercise1.entities.entitiesNeo4j.Director;
+import com.example.exercise1.repositories.neo4jrepositories.DirectorRepository;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;

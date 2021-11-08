@@ -1,7 +1,8 @@
 package com.example.exercise1.controllers;
 
-import com.example.exercise1.entities.Movie;
-import com.example.exercise1.services.MovieService;
+import com.example.exercise1.entities.entitiesNeo4j.Movie;
+import com.example.exercise1.exceptions.MovieRestControllerNullException;
+import com.example.exercise1.services.servicesNeo4j.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

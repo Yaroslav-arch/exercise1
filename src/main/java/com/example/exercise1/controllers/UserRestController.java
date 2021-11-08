@@ -1,7 +1,7 @@
 package com.example.exercise1.controllers;
 
-import com.example.exercise1.entities.User;
-import com.example.exercise1.services.UserService;
+import com.example.exercise1.entities.entitiesNeo4j.User;
+import com.example.exercise1.services.servicesNeo4j.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

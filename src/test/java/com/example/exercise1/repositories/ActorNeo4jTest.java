@@ -1,7 +1,8 @@
 package com.example.exercise1.repositories;
 
 import com.example.exercise1.BasicNeo4jTest;
-import com.example.exercise1.entities.Actor;
+import com.example.exercise1.entities.entitiesNeo4j.Actor;
+import com.example.exercise1.repositories.neo4jrepositories.ActorRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.data.neo4j.DataNeo4jTest;

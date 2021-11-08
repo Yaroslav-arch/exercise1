@@ -11,7 +11,8 @@ sourceCompatibility = '11'
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
-
+		all*.exclude module : 'spring-boot-starter-logging'
+		all*.exclude module : 'logback-classic'
 	}
 }
 
@@ -22,12 +23,11 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-neo4j:2.5.6'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.5.6'
-	configurations {
-		all*.exclude module : 'spring-boot-starter-logging'
-		all*.exclude module : 'logback-classic'
-	}
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.6'
 	implementation 'javax.inject:javax.inject:1'
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.12'
+	implementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'

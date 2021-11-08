@@ -1,4 +1,4 @@
-package com.example.exercise1.entities;
+package com.example.exercise1.entities.entitiesNeo4j;
 
 import lombok.Data;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
