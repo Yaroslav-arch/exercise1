@@ -1,7 +1,7 @@
 package com.example.exercise1.controllers;
 
-import com.example.exercise1.entities.dto.ActorDTO;
-import com.example.exercise1.services.MainService;
+import com.example.exercise1.dto.ActorDTO;
+import com.example.exercise1.service.MainService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

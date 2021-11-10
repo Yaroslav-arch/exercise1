@@ -1,29 +1,29 @@
 package com.example.exercise1.utils;
 
-import com.example.exercise1.entities.dto.*;
-import com.example.exercise1.entities.entitiesSQL.*;
+import com.example.exercise1.dto.*;
+import com.example.exercise1.sql.entitySql.*;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DTOConverterSQL {
 
-    public ActorDTO fromActorToDTO(Actor actor){
-        return new ActorDTO(actor.getName());
+    public ActorDTO fromActorToDTO(ActorSql actorSql){
+        return new ActorDTO(actorSql.getId(), actorSql.getName());
     }
 
-    public DirectorDTO fromDirectorToDTO(Director director){
-        return new DirectorDTO(director.getName());
+    public DirectorDTO fromDirectorToDTO(DirectorSql directorSql){
+        return new DirectorDTO(directorSql.getId(), directorSql.getName());
     }
 
-    public GenreDTO fromGenreToDTO(Genre genre){
-        return new GenreDTO(genre.getName());
+    public GenreDTO fromGenreToDTO(GenreSql genreSql){
+        return new GenreDTO(genreSql.getId(), genreSql.getName());
     }
 
-    public MovieDTO fromMovieToDTO(Movie movie){
-        return new MovieDTO(movie.getName(),movie.getDuration());
+    public MovieDTO fromMovieToDTO(MovieSql movieSql){
+        return new MovieDTO(movieSql.getId(), movieSql.getName(), movieSql.getDuration());
     }
 
-    public UserDTO fromUserToDTO(User user){
-        return new UserDTO(user.getNickname());
+    public UserDTO fromUserToDTO(UserSql userSql){
+        return new UserDTO(userSql.getId(), userSql.getNickname());
     }
 }
