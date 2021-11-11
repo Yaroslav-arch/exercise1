@@ -6,7 +6,6 @@ import com.example.exercise1.service.MainService;
 import com.example.exercise1.utils.DTOConverterNeo4j;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.util.List;
 import java.util.stream.Collectors;
 

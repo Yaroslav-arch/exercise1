@@ -19,14 +19,14 @@ public class MovieNeo4j {
     private int duration;
 
     @Relationship(type = "ACTED_IN", direction = Relationship.Direction.INCOMING)
-    private List<ActorNeo4j> actorNeo4js;
+    private List<ActorNeo4j> actors;
 
     @Relationship(type = "DIRECTED", direction = Relationship.Direction.INCOMING)
-    private List<DirectorNeo4j> directorNeo4js;
+    private List<DirectorNeo4j> directors;
 
     @Relationship(type = "RATED", direction = Relationship.Direction.INCOMING)
-    private List<UserNeo4j> userNeo4js;
+    private List<UserNeo4j> users;
 
     @Relationship(type = "IN_GENRE")
-    private List<GenreNeo4j> genreNeo4js;
+    private List<GenreNeo4j> genres;
 }

@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class MovieNeo4jSqlRestControllerTest extends BasicNeo4jTest {
+class MovieNeo4jRestControllerTest extends BasicNeo4jTest {
 
     @Inject
     private MockMvc mockMvc;
@@ -47,7 +47,7 @@ class MovieNeo4jSqlRestControllerTest extends BasicNeo4jTest {
     }
 
     @Test
-    void getMoviesByGenreTest() throws Exception {
+    void getMoviesByGenreTest() throws Exception {//TODO
         this.mockMvc.perform(MockMvcRequestBuilders.get("/movies/genre/Action"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("$[*]['name']").value(containsInAnyOrder("Matrix", "John Wick")));

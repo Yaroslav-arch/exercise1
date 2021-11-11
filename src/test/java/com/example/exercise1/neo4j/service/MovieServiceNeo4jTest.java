@@ -37,12 +37,12 @@ public class MovieServiceNeo4jTest {
         genreNeo4js.add(genreNeo4j);
         MovieNeo4j movieNeo4j1 = new MovieNeo4j();
         movieNeo4j1.setName("Mad Max");
-        movieNeo4j1.setActorNeo4js(actorNeo4jList);
-        movieNeo4j1.setGenreNeo4js(genreNeo4js);
+        movieNeo4j1.setActors(actorNeo4jList);
+        movieNeo4j1.setGenres(genreNeo4js);
         MovieNeo4j movieNeo4j2 = new MovieNeo4j();
         movieNeo4j2.setName("Lethal weapon");
-        movieNeo4j2.setActorNeo4js(actorNeo4jList);
-        movieNeo4j2.setGenreNeo4js(genreNeo4js);
+        movieNeo4j2.setActors(actorNeo4jList);
+        movieNeo4j2.setGenres(genreNeo4js);
         List<MovieNeo4j> movieNeo4js = new ArrayList<>();
         movieNeo4js.add(movieNeo4j1);
         movieNeo4js.add(movieNeo4j2);

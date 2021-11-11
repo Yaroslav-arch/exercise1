@@ -22,10 +22,10 @@ class MovieRepositoryNeo4jTest extends BasicNeo4jTest {
         String actorName = "Keanu Reeves";
         String movie1Name = "Matrix";
         String movie2Name = "John Wick";
-        List<MovieNeo4j> movieNeo4js = movieRepositoryNeo4j.getAllMoviesByActorsName(actorName);
-        Assertions.assertEquals(movieNeo4js.size(), 2);
-        Assertions.assertNotEquals(movieNeo4js.get(0), movieNeo4js.get(1));
-        Assertions.assertTrue(movieNeo4js.stream().map(MovieNeo4j::getName).anyMatch(movie1Name::equals));
-        Assertions.assertTrue(movieNeo4js.stream().map(MovieNeo4j::getName).anyMatch(movie2Name::equals));
+        List<MovieNeo4j> movies = movieRepositoryNeo4j.getAllMoviesByActorsName(actorName);
+        Assertions.assertEquals(movies.size(), 2);
+        Assertions.assertNotEquals(movies.get(0), movies.get(1));
+        Assertions.assertTrue(movies.stream().map(MovieNeo4j::getName).anyMatch(movie1Name::equals));
+        Assertions.assertTrue(movies.stream().map(MovieNeo4j::getName).anyMatch(movie2Name::equals));
     }
 }

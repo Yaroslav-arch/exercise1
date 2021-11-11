@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class ActorNeo4jSqlRestControllerTest extends BasicNeo4jTest {
+class ActorNeo4jRestControllerTest extends BasicNeo4jTest {
 
     @Inject
     private MockMvc mockMvc;
@@ -32,7 +32,7 @@ class ActorNeo4jSqlRestControllerTest extends BasicNeo4jTest {
     }
 
     @Test
-    void getAllActorsByMovieNameTest() throws Exception {
+    void getAllActorsByMovieNameTest() throws Exception { //TODO
         this.mockMvc.perform(MockMvcRequestBuilders.get("/actors/Matrix"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("$[*]",hasSize(2)))

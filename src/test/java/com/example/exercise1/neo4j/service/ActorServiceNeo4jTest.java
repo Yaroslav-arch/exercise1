@@ -27,25 +27,25 @@ public class ActorServiceNeo4jTest {
 
     @Before
     public void setUp() {
-        ActorNeo4j actorNeo4j = new ActorNeo4j();
-        actorNeo4j.setName("Mel Gibson");
-        List<ActorNeo4j> actorNeo4jList = new ArrayList<>();
-        actorNeo4jList.add(actorNeo4j);
-        GenreNeo4j genreNeo4j = new GenreNeo4j();
-        genreNeo4j.setName("Action");
-        List<GenreNeo4j> genreNeo4js = new ArrayList<>();
-        genreNeo4js.add(genreNeo4j);
-        MovieNeo4j movieNeo4j1 = new MovieNeo4j();
-        movieNeo4j1.setName("Mad Max");
-        movieNeo4j1.setActorNeo4js(actorNeo4jList);
-        movieNeo4j1.setGenreNeo4js(genreNeo4js);
-        MovieNeo4j movieNeo4j2 = new MovieNeo4j();
-        movieNeo4j2.setName("Lethal weapon");
-        movieNeo4j2.setActorNeo4js(actorNeo4jList);
-        movieNeo4j2.setGenreNeo4js(genreNeo4js);
+        ActorNeo4j actor = new ActorNeo4j();
+        actor.setName("Mel Gibson");
+        List<ActorNeo4j> actors = new ArrayList<>();
+        actors.add(actor);
+        GenreNeo4j genre = new GenreNeo4j();
+        genre.setName("action");
+        List<GenreNeo4j> genres = new ArrayList<>();
+        genres.add(genre);
+        MovieNeo4j movie1 = new MovieNeo4j();
+        movie1.setName("Mad Max");
+        movie1.setActors(actors);
+        movie1.setGenres(genres);
+        MovieNeo4j movie2 = new MovieNeo4j();
+        movie2.setName("Lethal weapon");
+        movie2.setActors(actors);
+        movie2.setGenres(genres);
 
         Mockito.when(actorRepositoryNeo4j.getAllActorsByMovieName("Mad Max"))
-                .thenReturn(actorNeo4jList);
+                .thenReturn(actors);
     }
 
     @Test
