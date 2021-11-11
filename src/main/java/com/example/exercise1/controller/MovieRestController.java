@@ -1,7 +1,7 @@
-package com.example.exercise1.controllers;
+package com.example.exercise1.controller;
 
 import com.example.exercise1.dto.MovieDTO;
-import com.example.exercise1.exceptions.MovieRestControllerNullException;
+import com.example.exercise1.exception.MovieRestControllerNullException;
 import com.example.exercise1.service.MainService;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,10 +1,9 @@
 package com.example.exercise1.neo4j;
 
 import com.example.exercise1.dto.*;
-import com.example.exercise1.service.MainService;
 import com.example.exercise1.neo4j.serviceNeo4j.*;
+import com.example.exercise1.service.MainService;
 import com.example.exercise1.utils.DTOConverterNeo4j;
-import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,27 +11,35 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 //@Service
-@Named("mainServiceNeo4j")
 //@ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "false", matchIfMissing = true)
 public class MainServiceNeo4j implements MainService {
-
-    private final ActorServiceNeo4j actorServiceNeo4j;
-    private final DirectorServiceNeo4j directorServiceNeo4j;
-    private final GenreServiceNeo4j genreServiceNeo4j;
-    private final MovieServiceNeo4j movieServiceNeo4j;
-    private final UserServiceNeo4j userServiceNeo4j;
-    private final DTOConverterNeo4j converter;
-
-
     @Inject
-    public MainServiceNeo4j(ActorServiceNeo4j actorServiceNeo4j, DirectorServiceNeo4j directorServiceNeo4j, GenreServiceNeo4j genreServiceNeo4j, MovieServiceNeo4j movieServiceNeo4j, UserServiceNeo4j userServiceNeo4j, DTOConverterNeo4j converter) {
-        this.actorServiceNeo4j = actorServiceNeo4j;
-        this.directorServiceNeo4j = directorServiceNeo4j;
-        this.genreServiceNeo4j = genreServiceNeo4j;
-        this.movieServiceNeo4j = movieServiceNeo4j;
-        this.userServiceNeo4j = userServiceNeo4j;
-        this.converter = converter;
+    private ActorServiceNeo4j actorServiceNeo4j;
+    @Inject
+    private DirectorServiceNeo4j directorServiceNeo4j;
+    @Inject
+    private GenreServiceNeo4j genreServiceNeo4j;
+    @Inject
+    private MovieServiceNeo4j movieServiceNeo4j;
+    @Inject
+    private UserServiceNeo4j userServiceNeo4j;
+    @Inject
+    private DTOConverterNeo4j converter;
+
+
+//    @Inject
+//    public MainServiceNeo4j(ActorServiceNeo4j actorServiceNeo4j, DirectorServiceNeo4j directorServiceNeo4j, GenreServiceNeo4j genreServiceNeo4j, MovieServiceNeo4j movieServiceNeo4j, UserServiceNeo4j userServiceNeo4j, DTOConverterNeo4j converter) {
+//        this.actorServiceNeo4j = actorServiceNeo4j;
+//        this.directorServiceNeo4j = directorServiceNeo4j;
+//        this.genreServiceNeo4j = genreServiceNeo4j;
+//        this.movieServiceNeo4j = movieServiceNeo4j;
+//        this.userServiceNeo4j = userServiceNeo4j;
+//        this.converter = converter;
+//    }
+
+    public MainServiceNeo4j() {
     }
+
 
     public List<ActorDTO> getAllActors() {
         return actorServiceNeo4j.getAllActors().stream().map(converter::fromActorToDTO).collect(Collectors.toList());

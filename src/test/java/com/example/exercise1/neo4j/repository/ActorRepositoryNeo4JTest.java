@@ -1,4 +1,4 @@
-package com.example.exercise1.neo4j.repositories;
+package com.example.exercise1.neo4j.repository;
 
 import com.example.exercise1.neo4j.BasicNeo4jTest;
 import com.example.exercise1.neo4j.entityNeo4j.ActorNeo4j;
@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @DataNeo4jTest
-class ActorNeo4JTest extends BasicNeo4jTest {
+class ActorRepositoryNeo4JTest extends BasicNeo4jTest {
 
     @Inject
     private ActorRepositoryNeo4j actorRepositoryNeo4j;

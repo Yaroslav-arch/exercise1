@@ -6,7 +6,7 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
 @Data
-@Node
+@Node(labels = "User")
 public class UserNeo4j {
 
     @Id

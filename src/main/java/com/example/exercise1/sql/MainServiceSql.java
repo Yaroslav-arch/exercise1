@@ -4,7 +4,6 @@ import com.example.exercise1.dto.*;
 import com.example.exercise1.service.MainService;
 import com.example.exercise1.sql.serviceSql.*;
 import com.example.exercise1.utils.DTOConverterSQL;
-import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,27 +11,34 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 //@Service
-@Named("mainServiceSql")
 //@ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "true")
 public class MainServiceSql implements MainService {
 
-    private final ActorServiceSql actorServiceSql;
-    private final DirectorServiceSql directorServiceSql;
-    private final GenreServiceSql genreServiceSql;
-    private final MovieServiceSql movieServiceSql;
-    private final UserServiceSql userServiceSql;
-    private final DTOConverterSQL converter;
-
-
     @Inject
-    public MainServiceSql(ActorServiceSql actorServiceSql, DirectorServiceSql directorServiceSql, GenreServiceSql genreServiceSql, MovieServiceSql movieServiceSql, UserServiceSql userServiceSql, DTOConverterSQL converter) {
-        this.actorServiceSql = actorServiceSql;
-        this.directorServiceSql = directorServiceSql;
-        this.genreServiceSql = genreServiceSql;
-        this.movieServiceSql = movieServiceSql;
-        this.userServiceSql = userServiceSql;
-        this.converter = converter;
-    }
+    private ActorServiceSql actorServiceSql;
+    @Inject
+    private DirectorServiceSql directorServiceSql;
+    @Inject
+    private GenreServiceSql genreServiceSql;
+    @Inject
+    private MovieServiceSql movieServiceSql;
+    @Inject
+    private UserServiceSql userServiceSql;
+    @Inject
+    private DTOConverterSQL converter;
+
+
+//    @Inject
+//    public MainServiceSql(ActorServiceSql actorServiceSql, DirectorServiceSql directorServiceSql, GenreServiceSql genreServiceSql, MovieServiceSql movieServiceSql, UserServiceSql userServiceSql, DTOConverterSQL converter) {
+//        this.actorServiceSql = actorServiceSql;
+//        this.directorServiceSql = directorServiceSql;
+//        this.genreServiceSql = genreServiceSql;
+//        this.movieServiceSql = movieServiceSql;
+//        this.userServiceSql = userServiceSql;
+//        this.converter = converter;
+//    }
+
+    public MainServiceSql(){}
 
     public List<ActorDTO> getAllActors() {
         return actorServiceSql.getAllActors().stream().map(converter::fromActorToDTO).collect(Collectors.toList());

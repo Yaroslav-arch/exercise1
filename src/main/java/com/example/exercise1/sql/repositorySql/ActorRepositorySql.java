@@ -11,7 +11,8 @@ import java.util.List;
 @Repository
 public interface ActorRepositorySql extends JpaRepository<ActorSql, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT * from Actors WHERE ID IN (SELECT Id FROM Movies WHERE NAME_ID = :movieName)")
-    List<ActorSql> getAllActorsByMovieName(@Param("movieName")String movieName);
+    @Query(nativeQuery = true, value = "SELECT * from Actors WHERE id IN (SELECT id FROM Movies WHERE name_id = :movieName)")
+//    @Query(nativeQuery = true, value = "SELECT actors.id, actors.name_id FROM actors INNER JOIN movies on actors.id = movies.actors_id WHERE movies.name_id = :movieName")
+    List<ActorSql> getAllActorsByMovieName(@Param("movieName") String movieName);
 
 }

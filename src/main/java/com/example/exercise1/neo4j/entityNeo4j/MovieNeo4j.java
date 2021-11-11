@@ -9,7 +9,7 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 import java.util.List;
 
 @Data
-@Node
+@Node(labels = "Movie")
 public class MovieNeo4j {
 
     @Id

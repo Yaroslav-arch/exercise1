@@ -1,6 +1,6 @@
-package com.example.exercise1.controllers;
+package com.example.exercise1.controller;
 
-import com.example.exercise1.dto.DirectorDTO;
+import com.example.exercise1.dto.UserDTO;
 import com.example.exercise1.service.MainService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,19 +10,18 @@ import javax.inject.Inject;
 import java.util.List;
 
 @RestController
-@RequestMapping("/directors")
-public class DirectorRestController {
+@RequestMapping("/users")
+public class UserRestController {
 
     private final MainService mainService;
 
     @Inject
-    public DirectorRestController(MainService mainService) {
+    public UserRestController(MainService mainService) {
         this.mainService = mainService;
     }
 
-
     @GetMapping("/all")
-    public List<DirectorDTO> getAllDirectors() {
-        return mainService.getAllDirectors();
+    public List<UserDTO> getAllUsers() {
+        return mainService.getAllUsers();
     }
 }

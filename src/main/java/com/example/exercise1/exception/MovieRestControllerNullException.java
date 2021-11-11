@@ -1,4 +1,4 @@
-package com.example.exercise1.exceptions;
+package com.example.exercise1.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

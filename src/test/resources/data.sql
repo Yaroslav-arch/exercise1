@@ -1,0 +1,43 @@
+-- DROP TABLE IF EXISTS "genres", "movies", "users", "directors", "actors";
+--
+-- CREATE TABLE IF NOT EXISTS actors
+-- (
+--     id BIGINT PRIMARY KEY,
+--     name_id VARCHAR(50)
+--     );
+--
+-- CREATE TABLE IF NOT EXISTS directors
+-- (
+--     id BIGINT PRIMARY KEY,
+--     name_id VARCHAR(50)
+--     );
+--
+-- CREATE TABLE IF NOT EXISTS users
+-- (
+--     id BIGINT PRIMARY KEY,
+--     nickname VARCHAR(50)
+--     );
+--
+-- CREATE TABLE IF NOT EXISTS movies
+-- (
+--     id BIGINT PRIMARY KEY,
+--     name_id VARCHAR(50),
+--     duration INTEGER,
+--     actors_id INTEGER REFERENCES actors,
+--     directors_id INTEGER REFERENCES directors,
+--     users_id INTEGER REFERENCES users
+--     );
+--
+-- CREATE TABLE IF NOT EXISTS genres
+-- (
+--     id BIGINT PRIMARY KEY,
+--     name_id VARCHAR(50),
+--     movies_id INTEGER REFERENCES movies
+--     );
+
+-- INSERT INTO actors1124234234 (name_id) VALUES ('Keanu Reeves'), ('Hugo Weaving');
+-- INSERT INTO directors (name_id) VALUES ('Wachowski bros');
+-- INSERT INTO users (nickname) VALUES ('user777');
+-- INSERT INTO movies (name_id, duration, actors_id, directors_id, users_id)
+-- VALUES ('Matrix', 90,  2, 1, 1), ('John Wick', 100, 1, 1, 1);
+-- INSERT INTO genres (name_id, movies_id) VALUES ('action', 1);

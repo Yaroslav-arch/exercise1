@@ -6,7 +6,7 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
 @Data
-@Node
+@Node(labels = "Actor")
 public class ActorNeo4j {
 
     @Id

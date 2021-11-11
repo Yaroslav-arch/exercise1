@@ -2,13 +2,7 @@ package com.example.exercise1.sql.entitySql;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -20,19 +14,34 @@ public class MovieSql {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "name_id")
     private String name;
 
     @Column
     private int duration;
 
     @ManyToMany
-    private List<ActorSql> actorEntities;
+    @JoinTable(
+            name = "acted_in",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id"))
+    private List<ActorSql> actors;
 
     @ManyToMany
-    private List<DirectorSql> directorEntities;
+    @JoinTable(
+            name = "directed_by",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "director_id"))
+    private List<DirectorSql> directors;
 
     @ManyToMany
-    private List<UserSql> userEntities;
+    @JoinTable(
+            name = "users_liked",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<UserSql> users;
+
+    @ManyToMany(mappedBy = "movies")
+    private List<GenreSql> genres;
 
 }

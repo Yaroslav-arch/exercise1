@@ -1,4 +1,4 @@
-package com.example.exercise1.controllers;
+package com.example.exercise1.controller;
 
 import com.example.exercise1.neo4j.BasicNeo4jTest;
 import org.junit.jupiter.api.Test;
