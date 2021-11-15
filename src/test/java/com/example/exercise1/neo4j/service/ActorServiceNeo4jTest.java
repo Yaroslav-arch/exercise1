@@ -4,7 +4,8 @@ import com.example.exercise1.neo4j.entityNeo4j.ActorNeo4j;
 import com.example.exercise1.neo4j.entityNeo4j.GenreNeo4j;
 import com.example.exercise1.neo4j.entityNeo4j.MovieNeo4j;
 import com.example.exercise1.neo4j.repositoryNeo4j.ActorRepositoryNeo4j;
-import com.example.exercise1.neo4j.serviceNeo4j.ActorServiceNeo4j;
+import com.example.exercise1.service.MainService;
+import com.example.exercise1.neo4j.MainServiceNeo4j;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,11 +17,11 @@ import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootTest
+@SpringBootTest(properties = {"datasource.rdbms=false"})
 public class ActorServiceNeo4jTest {
 
     @Inject
-    private ActorServiceNeo4j actorServiceNeo4j;
+    private MainService mainService;
 
     @MockBean
     private static ActorRepositoryNeo4j actorRepositoryNeo4j;
@@ -49,9 +50,14 @@ public class ActorServiceNeo4jTest {
     }
 
     @Test
+    public void checkingRdbmsPropertyNeo4j() {
+        Assertions.assertTrue(mainService instanceof MainServiceNeo4j);
+    }
+
+    @Test
     public void getAllActorsByMovieName() {
         String movieName = "Mad Max";
-        Assertions.assertNotNull(actorServiceNeo4j.getAllActorsByMovieName(movieName));
+        Assertions.assertNotNull(mainService.getAllActorsByMovieName(movieName));
     }
 
 }

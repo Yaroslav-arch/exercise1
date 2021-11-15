@@ -4,14 +4,17 @@ import com.example.exercise1.sql.entitySql.MovieSql;
 import com.example.exercise1.sql.repositorySql.MovieRepositorySql;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
 import javax.inject.Inject;
 import java.util.List;
 
-@DataJpaTest
-@TestPropertySource("/application.properties")
+//@DataJpaTest
+@SpringBootTest
+//@TestPropertySource("/application-test.properties")
 public class MovieRepositorySqlTest {
 
     @Inject

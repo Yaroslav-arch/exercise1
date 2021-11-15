@@ -6,11 +6,12 @@ import com.example.exercise1.neo4j.repositoryNeo4j.MovieRepositoryNeo4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.data.neo4j.DataNeo4jTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.inject.Inject;
 import java.util.List;
 
-@DataNeo4jTest
+@DataNeo4jTest(properties = {"datasource.rdbms=false"})
 class MovieRepositoryNeo4jTest extends BasicNeo4jTest {
 
     @Inject

@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @DataJpaTest
-@TestPropertySource("/application.properties")
+@TestPropertySource(locations = "/application-test.properties", properties = {"datasource.rdbms=true"})
 public class ActorRepositorySqlTest {
 
     @Inject

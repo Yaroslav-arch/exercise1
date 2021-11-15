@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class ActorNeo4jRestControllerTest extends BasicNeo4jTest {
+class ActorNeo4jRestControllerTest{//TODO
 
     @Inject
     private MockMvc mockMvc;
