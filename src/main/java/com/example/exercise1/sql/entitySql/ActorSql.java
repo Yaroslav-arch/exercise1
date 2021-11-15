@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Actors")
+@Table(name = "actors")
 public class ActorSql {
 
     @Id

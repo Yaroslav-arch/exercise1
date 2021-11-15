@@ -17,7 +17,7 @@ public class MovieSql {
     @Column(name = "name_id")
     private String name;
 
-    @Column
+    @Column(name = "duration")
     private int duration;
 
     @ManyToMany

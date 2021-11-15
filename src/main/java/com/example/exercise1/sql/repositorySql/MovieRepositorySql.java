@@ -13,11 +13,14 @@ public interface MovieRepositorySql extends JpaRepository<MovieSql, Long> {
 
     MovieSql getMovieByName(String name);
 
-//    @Query(nativeQuery = true, value = "SELECT * from movies WHERE id IN (SELECT ID FROM actors WHERE NAME_ID = :actorName)")
-    @Query(nativeQuery = true, value = "SELECT movies.id, movies.name_id from movies INNER JOIN actors ON movies.actors_id=actors.id WHERE actors.name_id = :actorName")
+//    @Query(nativeQuery = true, value = "SELECT movies.id, movies.name_id, movies.duration from movies WHERE id IN (SELECT id FROM actors WHERE NAME_ID = :actorName)")
+    @Query(nativeQuery = true, value = "SELECT movies.id, movies.name_id, movies.duration\n" +
+            "FROM movies\n" +
+            "JOIN acted_in ON movies.id = acted_in.movie_id\n" +
+            "JOIN actors on acted_in.actor_id = actors.id AND actors.name_id = :actorName")
     List<MovieSql> getAllMoviesByActorsName(@Param("actorName") String actorName);
 
-    @Query(nativeQuery=true, value = "SELECT movies.id, movies.name_id FROM movies WHERE id IN (SELECT id FROM genres WHERE NAME_ID = :genreName)")
+    @Query(nativeQuery=true, value = "SELECT movies.id, movies.name_id, movies.duration FROM movies WHERE id IN (SELECT id FROM genres WHERE NAME_ID = :genreName)")
     List<MovieSql> getAllMoviesByGenreName(@Param("genreName") String genreName);
 
 
