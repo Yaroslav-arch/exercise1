@@ -9,8 +9,6 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@Service
-//@ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "false", matchIfMissing = true)
 public class MainServiceNeo4j implements MainService {
     @Inject
     private ActorServiceNeo4j actorServiceNeo4j;
@@ -24,17 +22,6 @@ public class MainServiceNeo4j implements MainService {
     private UserServiceNeo4j userServiceNeo4j;
     @Inject
     private DTOConverterNeo4j converter;
-
-
-//    @Inject
-//    public MainServiceNeo4j(ActorServiceNeo4j actorServiceNeo4j, DirectorServiceNeo4j directorServiceNeo4j, GenreServiceNeo4j genreServiceNeo4j, MovieServiceNeo4j movieServiceNeo4j, UserServiceNeo4j userServiceNeo4j, DTOConverterNeo4j converter) {
-//        this.actorServiceNeo4j = actorServiceNeo4j;
-//        this.directorServiceNeo4j = directorServiceNeo4j;
-//        this.genreServiceNeo4j = genreServiceNeo4j;
-//        this.movieServiceNeo4j = movieServiceNeo4j;
-//        this.userServiceNeo4j = userServiceNeo4j;
-//        this.converter = converter;
-//    }
 
     public MainServiceNeo4j() {
     }

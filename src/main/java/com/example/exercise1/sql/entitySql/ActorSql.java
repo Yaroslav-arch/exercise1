@@ -7,14 +7,14 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "actors")
+@Table(name = "actor")
 public class ActorSql {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name_id")
+    @Column(name = "actor_name")
     private String name;
 
     @ManyToMany(mappedBy = "actors")

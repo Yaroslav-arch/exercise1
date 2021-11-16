@@ -12,10 +12,10 @@ public interface MovieRepositoryNeo4j extends Neo4jRepository<MovieNeo4j, Long> 
 
     MovieNeo4j getMovieByName(String name);
 
-    @Query("MATCH (a:Actor{name:$actorsName})-[:ACTED_IN]->(m:Movie) RETURN m")
+    @Query("MATCH (:Actor{name:$actorsName})-[:ACTED_IN]->(m:Movie) RETURN m")
     List<MovieNeo4j> getAllMoviesByActorsName(String actorsName);
 
-    @Query("MATCH (g:Genre{name:$genreName})<-[:IN_GENRE]-(m:Movie) RETURN m")
+    @Query("MATCH (:Genre{name:$genreName})<-[:IN_GENRE]-(m:Movie) RETURN m")
     List<MovieNeo4j> getAllMoviesByGenreName(String genreName);
 
 }

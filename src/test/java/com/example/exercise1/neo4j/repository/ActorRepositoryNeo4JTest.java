@@ -22,11 +22,11 @@ class ActorRepositoryNeo4JTest extends BasicNeo4jTest {
         String movieName = "Matrix";
         String actor1Name = "Keanu Reeves";
         String actor2Name = "Hugo Weaving";
-        List<ActorNeo4j> actorNeo4js = actorRepositoryNeo4j.getAllActorsByMovieName(movieName);
+        List<ActorNeo4j> actors = actorRepositoryNeo4j.getAllActorsByMovieName(movieName);
 
-        Assertions.assertEquals(actorNeo4js.size(), 2);
-        Assertions.assertNotEquals(actorNeo4js.get(0), actorNeo4js.get(1));
-        Assertions.assertTrue(actorNeo4js.stream().map(ActorNeo4j::getName).anyMatch(actor1Name::equals));
-        Assertions.assertTrue(actorNeo4js.stream().map(ActorNeo4j::getName).anyMatch(actor2Name::equals));
+        Assertions.assertEquals(actors.size(), 2);
+        Assertions.assertNotEquals(actors.get(0), actors.get(1));
+        Assertions.assertTrue(actors.stream().map(ActorNeo4j::getName).anyMatch(actor1Name::equals));
+        Assertions.assertTrue(actors.stream().map(ActorNeo4j::getName).anyMatch(actor2Name::equals));
     }
 }

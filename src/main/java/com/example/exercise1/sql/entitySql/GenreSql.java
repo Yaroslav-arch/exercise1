@@ -7,14 +7,14 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Genres")
+@Table(name = "genre")
 public class GenreSql {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name_id")
+    @Column(name = "genre_name")
     private String name;
 
     @ManyToMany

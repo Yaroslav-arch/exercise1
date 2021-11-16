@@ -7,14 +7,14 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Movies")
+@Table(name = "movie")
 public class MovieSql {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name_id")
+    @Column(name = "movie_name")
     private String name;
 
     @Column(name = "duration")
@@ -43,5 +43,6 @@ public class MovieSql {
 
     @ManyToMany(mappedBy = "movies")
     private List<GenreSql> genres;
+
 
 }
