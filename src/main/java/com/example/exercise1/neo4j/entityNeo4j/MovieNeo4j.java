@@ -1,6 +1,6 @@
 package com.example.exercise1.neo4j.entityNeo4j;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
@@ -8,7 +8,11 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 
 import java.util.List;
 
-@Data
+@Builder
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor
+@Getter
+@Setter
 @Node(labels = "Movie")
 public class MovieNeo4j {
 

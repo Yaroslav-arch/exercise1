@@ -20,4 +20,7 @@ public class DirectorServiceNeo4j {
         return directorRepositoryNeo4j.findAll();
     }
 
+    public void saveDirector(DirectorNeo4j director) {
+        directorRepositoryNeo4j.save(director);
+    }
 }

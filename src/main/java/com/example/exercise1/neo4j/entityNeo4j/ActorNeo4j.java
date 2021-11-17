@@ -15,4 +15,8 @@ public class ActorNeo4j {
 
     private String name;
 
+    public ActorNeo4j(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

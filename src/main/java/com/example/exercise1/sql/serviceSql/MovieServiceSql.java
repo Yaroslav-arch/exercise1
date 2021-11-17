@@ -32,4 +32,8 @@ public class MovieServiceSql {
     public List<MovieSql> getAllMoviesByGenreName(String genreName) {
         return movieRepositorySql.getAllMoviesByGenreName(genreName);
     }
+
+    public void saveMovie(MovieSql movie) {
+        movieRepositorySql.save(movie);
+    }
 }

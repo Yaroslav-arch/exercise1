@@ -24,4 +24,11 @@ public class GenreSql {
             inverseJoinColumns = @JoinColumn(name = "movie_id"))
     private List<MovieSql> movies;
 
+    public GenreSql(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public GenreSql() {
+    }
 }

@@ -24,4 +24,8 @@ public class ActorServiceSql {
     public List<ActorSql> getAllActorsByMovieName(String movieName) {
         return actorRepositorySql.getAllActorsByMovieName(movieName);
     }
+
+    public void saveActor(ActorSql actor) {
+        actorRepositorySql.save(actor);
+    }
 }

@@ -1,12 +1,16 @@
 package com.example.exercise1.sql.entitySql;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
 @Entity
+@Builder
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "movie")
 public class MovieSql {
 

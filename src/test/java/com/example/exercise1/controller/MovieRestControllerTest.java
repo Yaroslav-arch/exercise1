@@ -28,11 +28,11 @@ class MovieRestControllerTest {
     String actorName = "Keanu Reeves";
     String movieName = "Matrix";
     String genreName = "action";
-    MovieDTO movie = new MovieDTO(1L, movieName, 90);
-
+    MovieDTO movie = MovieDTO.builder().id(1L).name(movieName).duration(90).build();
+    MovieDTO movie1 = MovieDTO.builder().id(2L).name("John Wick").duration(101).build();
     {
 
-        MovieDTO movie1 = new MovieDTO(2L, "John Wick", 101);
+
         movies.add(movie);
         movies.add(movie1);
 

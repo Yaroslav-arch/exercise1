@@ -19,4 +19,12 @@ public class UserSql {
 
     @ManyToMany(mappedBy = "users")
     private List<MovieSql> movies;
+
+    public UserSql(Long id, String nickname) {
+        this.id = id;
+        this.nickname = nickname;
+    }
+
+    public UserSql() {
+    }
 }

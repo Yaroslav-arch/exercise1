@@ -20,4 +20,7 @@ public class UserServiceNeo4j {
         return userRepositoryNeo4j.findAll();
     }
 
+    public void saveUser(UserNeo4j user) {
+        userRepositoryNeo4j.save(user);
+    }
 }

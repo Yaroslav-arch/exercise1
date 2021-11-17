@@ -20,4 +20,7 @@ public class DirectorServiceSql {
         return directorRepositorySql.findAll();
     }
 
+    public void saveDirector(DirectorSql director) {
+        directorRepositorySql.save(director);
+    }
 }

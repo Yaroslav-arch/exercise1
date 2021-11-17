@@ -32,4 +32,7 @@ public class MovieServiceNeo4j {
         return movieRepositoryNeo4j.getAllMoviesByGenreName(genreName);
     }
 
+    public void saveMovie(MovieNeo4j movie) {
+        movieRepositoryNeo4j.save(movie);
+    }
 }

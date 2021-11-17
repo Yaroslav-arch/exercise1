@@ -20,4 +20,11 @@ public class DirectorSql {
     @ManyToMany(mappedBy = "directors")
     private List<MovieSql> movies;
 
+    public DirectorSql(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public DirectorSql() {
+    }
 }

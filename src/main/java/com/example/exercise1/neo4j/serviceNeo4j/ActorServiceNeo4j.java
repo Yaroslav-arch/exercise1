@@ -24,4 +24,8 @@ public class ActorServiceNeo4j {
     public List<ActorNeo4j> getAllActorsByMovieName(String movieName) {
         return actorRepositoryNeo4j.getAllActorsByMovieName(movieName);
     }
+
+    public void saveActor(ActorNeo4j actor) {
+        actorRepositoryNeo4j.save(actor);
+    }
 }

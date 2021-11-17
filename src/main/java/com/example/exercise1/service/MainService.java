@@ -27,4 +27,14 @@ public interface MainService {
     List<MovieDTO> getAllMoviesByGenreName(String genreName);
 
     List<UserDTO> getAllUsers();
+
+    void saveActor(ActorDTO actorDTO);
+
+    void saveMovie(MovieDTO movieDTO);
+
+    void saveDirector(DirectorDTO directorDTO);
+
+    void saveGenre(GenreDTO genreDTO);
+
+    void saveUser(UserDTO userDTO);
 }

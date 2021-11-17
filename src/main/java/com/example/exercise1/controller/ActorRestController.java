@@ -2,10 +2,7 @@ package com.example.exercise1.controller;
 
 import com.example.exercise1.dto.ActorDTO;
 import com.example.exercise1.service.MainService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -29,6 +26,10 @@ public class ActorRestController {
     @GetMapping("/{movieName}")
     public List<ActorDTO> getAllActorsByMovieName(@PathVariable String movieName) {
         return mainService.getAllActorsByMovieName(movieName);
+    }
+    @PostMapping("/save")
+    public void saveActor(@RequestBody ActorDTO actorDTO){
+        mainService.saveActor(actorDTO);
     }
 
 }

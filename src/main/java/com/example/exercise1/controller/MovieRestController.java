@@ -41,4 +41,9 @@ public class MovieRestController {
     public List<MovieDTO> getMoviesByGenre(@PathVariable String genreName) {
         return mainService.getAllMoviesByGenreName(genreName);
     }
+
+    @PostMapping("/save")
+    public void saveMovie(@RequestBody MovieDTO movieDTO){
+        mainService.saveMovie(movieDTO);
+    }
 }

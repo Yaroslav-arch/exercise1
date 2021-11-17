@@ -1,7 +1,6 @@
 package com.example.exercise1.sql.service;
 
 
-
 import com.example.exercise1.sql.entitySql.ActorSql;
 import com.example.exercise1.sql.entitySql.GenreSql;
 import com.example.exercise1.sql.entitySql.MovieSql;
@@ -29,25 +28,17 @@ public class MovieServiceSqlTest {
 
     @Before
     public void setUp() {
-        ActorSql actor = new ActorSql();
-        actor.setName("Mel Gibson");
-        List<ActorSql> actors = new ArrayList<>();
-        actors.add(actor);
-        GenreSql genre = new GenreSql();
-        genre.setName("action");
-        List<GenreSql> genres = new ArrayList<>();
-        genres.add(genre);
-        MovieSql movie1 = new MovieSql();
-        movie1.setName("Mad Max");
-        movie1.setActors(actors);
-        movie1.setGenres(genres);
-        MovieSql movie2 = new MovieSql();
-        movie2.setName("Lethal weapon");
-        movie2.setActors(actors);
-        movie2.setGenres(genres);
+        ActorSql actorSql = new ActorSql(1L,"Mel Gibson");
+        List<ActorSql> actorSqlList = new ArrayList<>();
+        actorSqlList.add(actorSql);
+        GenreSql genreSql = new GenreSql(1L, "action");
+        List<GenreSql> genreSqls = new ArrayList<>();
+        genreSqls.add(genreSql);
+        MovieSql movieSql1 = MovieSql.builder().id(1L).name("Mad Max").actors(actorSqlList).genres(genreSqls).build();
+        MovieSql movieSql2 = MovieSql.builder().id(2L).name("Lethal Weapon").actors(actorSqlList).genres(genreSqls).build();
         List<MovieSql> movies = new ArrayList<>();
-        movies.add(movie1);
-        movies.add(movie2);
+        movies.add(movieSql1);
+        movies.add(movieSql2);
 
 
         Mockito.when(movieRepositorySql.getAllMoviesByActorsName("Mel Gibson"))
@@ -62,8 +53,7 @@ public class MovieServiceSqlTest {
 
     @Test
     public void getAllMoviesByGenre() {
-        GenreSql genre = new GenreSql();
-        genre.setName("Action");
+        GenreSql genre = new GenreSql(1L,"action");
         Assertions.assertNotNull(movieServiceSql.getAllMoviesByGenreName(genre.getName()));
     }
 }

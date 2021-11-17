@@ -20,4 +20,8 @@ public class UserServiceSql {
     public List<UserSql> getAllUsers() {
         return userRepositorySql.findAll();
     }
+
+    public void saveUser(UserSql user) {
+        userRepositorySql.save(user);
+    }
 }

@@ -24,4 +24,7 @@ public class GenreServiceNeo4j {
         return genreRepositoryNeo4j.getGenreByName(name);
     }
 
+    public void saveGenre(GenreNeo4j genre) {
+        genreRepositoryNeo4j.save(genre);
+    }
 }

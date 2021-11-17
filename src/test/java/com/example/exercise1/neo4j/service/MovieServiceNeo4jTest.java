@@ -27,22 +27,14 @@ public class MovieServiceNeo4jTest {
 
     @Before
     public void setUp() {
-        ActorNeo4j actorNeo4j = new ActorNeo4j();
-        actorNeo4j.setName("Mel Gibson");
+        ActorNeo4j actorNeo4j = new ActorNeo4j(1L,"Mel Gibson");
         List<ActorNeo4j> actorNeo4jList = new ArrayList<>();
         actorNeo4jList.add(actorNeo4j);
-        GenreNeo4j genreNeo4j = new GenreNeo4j();
-        genreNeo4j.setName("Action");
+        GenreNeo4j genreNeo4j = new GenreNeo4j(1L, "action");
         List<GenreNeo4j> genreNeo4js = new ArrayList<>();
         genreNeo4js.add(genreNeo4j);
-        MovieNeo4j movieNeo4j1 = new MovieNeo4j();
-        movieNeo4j1.setName("Mad Max");
-        movieNeo4j1.setActors(actorNeo4jList);
-        movieNeo4j1.setGenres(genreNeo4js);
-        MovieNeo4j movieNeo4j2 = new MovieNeo4j();
-        movieNeo4j2.setName("Lethal weapon");
-        movieNeo4j2.setActors(actorNeo4jList);
-        movieNeo4j2.setGenres(genreNeo4js);
+        MovieNeo4j movieNeo4j1 = MovieNeo4j.builder().id(1L).name("Mad Max").actors(actorNeo4jList).genres(genreNeo4js).build();
+        MovieNeo4j movieNeo4j2 = MovieNeo4j.builder().id(2L).name("Lethal Weapon").actors(actorNeo4jList).genres(genreNeo4js).build();
         List<MovieNeo4j> movieNeo4js = new ArrayList<>();
         movieNeo4js.add(movieNeo4j1);
         movieNeo4js.add(movieNeo4j2);
@@ -60,8 +52,7 @@ public class MovieServiceNeo4jTest {
 
     @Test
     public void getAllMoviesByGenre() {
-        GenreNeo4j genreNeo4j = new GenreNeo4j();
-        genreNeo4j.setName("Action");
+        GenreNeo4j genreNeo4j = new GenreNeo4j(1L, "action");
         Assertions.assertNotNull(movieServiceNeo4j.getAllMoviesByGenreName(genreNeo4j.getName()));
     }
 }

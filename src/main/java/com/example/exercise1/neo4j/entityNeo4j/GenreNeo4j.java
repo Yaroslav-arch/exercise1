@@ -14,4 +14,8 @@ public class GenreNeo4j {
     private Long id;
     private String name;
 
+    public GenreNeo4j(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

@@ -14,4 +14,8 @@ public class DirectorNeo4j {
     private Long id;
     private String name;
 
+    public DirectorNeo4j(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

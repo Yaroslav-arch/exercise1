@@ -23,4 +23,8 @@ public class GenreServiceSql {
     public GenreSql getGenreByName(String name) {
         return genreRepositorySql.getGenreByName(name);
     }
+
+    public void saveGenre(GenreSql genre) {
+        genreRepositorySql.save(genre);
+    }
 }

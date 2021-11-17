@@ -13,4 +13,9 @@ public class UserNeo4j {
     @GeneratedValue
     private Long id;
     private String nickname;
+
+    public UserNeo4j(Long id, String nickname) {
+        this.id = id;
+        this.nickname = nickname;
+    }
 }

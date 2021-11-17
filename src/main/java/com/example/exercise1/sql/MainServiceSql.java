@@ -6,12 +6,9 @@ import com.example.exercise1.sql.serviceSql.*;
 import com.example.exercise1.utils.DTOConverterSQL;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@Service
-//@ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "true")
 public class MainServiceSql implements MainService {
 
     @Inject
@@ -26,17 +23,6 @@ public class MainServiceSql implements MainService {
     private UserServiceSql userServiceSql;
     @Inject
     private DTOConverterSQL converter;
-
-
-//    @Inject
-//    public MainServiceSql(ActorServiceSql actorServiceSql, DirectorServiceSql directorServiceSql, GenreServiceSql genreServiceSql, MovieServiceSql movieServiceSql, UserServiceSql userServiceSql, DTOConverterSQL converter) {
-//        this.actorServiceSql = actorServiceSql;
-//        this.directorServiceSql = directorServiceSql;
-//        this.genreServiceSql = genreServiceSql;
-//        this.movieServiceSql = movieServiceSql;
-//        this.userServiceSql = userServiceSql;
-//        this.converter = converter;
-//    }
 
     public MainServiceSql(){}
 
@@ -79,6 +65,26 @@ public class MainServiceSql implements MainService {
 
     public List<UserDTO> getAllUsers() {
         return userServiceSql.getAllUsers().stream().map(converter::fromUserToDTO).collect(Collectors.toList());
+    }
+
+    public void saveActor(ActorDTO actorDTO) {
+        actorServiceSql.saveActor(converter.toActorFromDto(actorDTO));
+    }
+
+    public void saveDirector(DirectorDTO directorDTO) {
+        directorServiceSql.saveDirector(converter.toDirectorFromDto(directorDTO));
+    }
+
+    public void saveGenre(GenreDTO genreDTO) {
+        genreServiceSql.saveGenre(converter.toGenreFromDto(genreDTO));
+    }
+
+    public void saveMovie(MovieDTO movieDTO) {
+        movieServiceSql.saveMovie(converter.toMovieFromDto(movieDTO));
+    }
+
+    public void saveUser(UserDTO userDTO) {
+        userServiceSql.saveUser(converter.toUserFromDto(userDTO));
     }
 
 }

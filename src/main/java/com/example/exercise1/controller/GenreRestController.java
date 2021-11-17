@@ -2,10 +2,7 @@ package com.example.exercise1.controller;
 
 import com.example.exercise1.dto.GenreDTO;
 import com.example.exercise1.service.MainService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -29,5 +26,10 @@ public class GenreRestController {
     public GenreDTO getMovieByName(@PathVariable String genreName) {
         return mainService.getGenreByName(genreName);
 
+    }
+
+    @PostMapping("/save")
+    public void saveGenre(@RequestBody GenreDTO genreDTO){
+        mainService.saveGenre(genreDTO);
     }
 }
