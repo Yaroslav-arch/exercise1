@@ -15,6 +15,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 public class MovieServiceNeo4jTest {
@@ -27,7 +30,7 @@ public class MovieServiceNeo4jTest {
 
     @Before
     public void setUp() {
-        ActorNeo4j actorNeo4j = new ActorNeo4j(1L,"Mel Gibson");
+        ActorNeo4j actorNeo4j = new ActorNeo4j(1L, "Mel Gibson");
         List<ActorNeo4j> actors = new ArrayList<>();
         actors.add(actorNeo4j);
         GenreNeo4j genre = new GenreNeo4j(1L, "action");
@@ -42,6 +45,9 @@ public class MovieServiceNeo4jTest {
 
         Mockito.when(movieRepositoryNeo4j.getAllMoviesByActorsName("Mel Gibson"))
                 .thenReturn(movies);
+
+        Mockito.when(movieRepositoryNeo4j.findByName("Some Movie"))
+                .thenReturn(Optional.of(MovieNeo4j.builder().name("Some Movie").duration(65).build()));
     }
 
     @Test
@@ -55,4 +61,14 @@ public class MovieServiceNeo4jTest {
         GenreNeo4j genreNeo4j = new GenreNeo4j(1L, "action");
         Assertions.assertNotNull(movieServiceNeo4j.getAllMoviesByGenreName(genreNeo4j.getName()));
     }
+
+//    @Test
+//    public void saveMovieTest() {
+//        MovieNeo4j movie = MovieNeo4j.builder().name("Some Movie").duration(65).build();
+//        MovieNeo4j savedMovie = movieServiceNeo4j.getMovieByName(movie.getName());
+//        assertThat(movie).usingRecursiveComparison().isEqualTo(savedMovie);
+//    }
+
+//    @Test
+//    public void
 }

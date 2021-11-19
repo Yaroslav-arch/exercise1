@@ -48,5 +48,4 @@ public class MovieSql {
     @ManyToMany(mappedBy = "movies")
     private List<GenreSql> genres;
 
-
 }

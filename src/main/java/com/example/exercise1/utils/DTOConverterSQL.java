@@ -70,6 +70,7 @@ public class DTOConverterSQL {
                 .builder()
                 .id(movieDTO.getId())
                 .name(movieDTO.getName())
+                .duration(movieDTO.getDuration())
                 .actors(movieDTO.getActors()
                         .stream()
                         .map(this::toActorFromDto)
