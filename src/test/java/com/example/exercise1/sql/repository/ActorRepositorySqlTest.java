@@ -20,7 +20,7 @@ public class ActorRepositorySqlTest {
         String movieName = "Matrix";
         String actorName = "Keanu Reeves";
         String actorName1 = "Hugo Weaving";
-        List<ActorSql> actorsSql = actorRepositorySql.getAllActorsByMovieName(movieName);
+        List<ActorSql> actorsSql = actorRepositorySql.getByMovies_Name(movieName);
 
         Assertions.assertEquals(2, actorsSql.size());
         Assertions.assertEquals(actorName, actorsSql.get(0).getName());

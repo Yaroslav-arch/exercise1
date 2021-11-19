@@ -31,12 +31,6 @@ public class ActorServiceNeo4jTest {
         ActorNeo4j actor = new ActorNeo4j(1L, "Mel Gibson");
         List<ActorNeo4j> actors = new ArrayList<>();
         actors.add(actor);
-        GenreNeo4j genre = new GenreNeo4j(1L, "action");
-        List<GenreNeo4j> genres = new ArrayList<>();
-        genres.add(genre);
-        MovieNeo4j movie1 = MovieNeo4j.builder().id(1L).name("Mad Max").actors(actors).genres(genres).build();
-        MovieNeo4j movie2 = MovieNeo4j.builder().id(1L).name("Lethal weapon").actors(actors).genres(genres).build();
-
 
         Mockito.when(actorRepositoryNeo4j.getAllActorsByMovieName("Mad Max"))
                 .thenReturn(actors);

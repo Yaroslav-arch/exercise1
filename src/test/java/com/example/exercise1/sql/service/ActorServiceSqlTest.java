@@ -30,11 +30,9 @@ public class ActorServiceSqlTest {
         ActorSql actor = new ActorSql(1L, "Mel Gibson");
         List<ActorSql> actors = new ArrayList<>();
         actors.add(actor);
-        GenreSql genre = new GenreSql(1L, "action");
-        List<GenreSql> genres = new ArrayList<>();
-        genres.add(genre);
 
-        Mockito.when(actorRepositorySql.getAllActorsByMovieName("Mad Max"))
+
+        Mockito.when(actorRepositorySql.getByMovies_Name("Mad Max"))
                 .thenReturn(actors);
     }
 

@@ -32,16 +32,16 @@ public class MovieServiceSqlTest {
         List<ActorSql> actorSqlList = new ArrayList<>();
         actorSqlList.add(actorSql);
         GenreSql genreSql = new GenreSql(1L, "action");
-        List<GenreSql> genreSqls = new ArrayList<>();
-        genreSqls.add(genreSql);
-        MovieSql movieSql1 = MovieSql.builder().id(1L).name("Mad Max").actors(actorSqlList).genres(genreSqls).build();
-        MovieSql movieSql2 = MovieSql.builder().id(2L).name("Lethal Weapon").actors(actorSqlList).genres(genreSqls).build();
+        List<GenreSql> genres = new ArrayList<>();
+        genres.add(genreSql);
+        MovieSql movieSql1 = MovieSql.builder().id(1L).name("Mad Max").actors(actorSqlList).genres(genres).build();
+        MovieSql movieSql2 = MovieSql.builder().id(2L).name("Lethal Weapon").actors(actorSqlList).genres(genres).build();
         List<MovieSql> movies = new ArrayList<>();
         movies.add(movieSql1);
         movies.add(movieSql2);
 
 
-        Mockito.when(movieRepositorySql.getAllMoviesByActorsName("Mel Gibson"))
+        Mockito.when(movieRepositorySql.getByActors_Name("Mel Gibson"))
                 .thenReturn(movies);
     }
 

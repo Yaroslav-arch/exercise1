@@ -1,6 +1,6 @@
 CREATE (a:Actor {name: 'Keanu Reeves'})-[:ACTED_IN]->(m:Movie {name: 'Matrix'})-[:IN_GENRE]->(:Genre {name: 'Action'}),
        (:Director {name: 'Wachowski bros'})-[:DIRECTED]->(m)<-[:RATED]-(:User {nickname: 'User123'}),
-       (:Actor {name:'Hugo Weaving'})-[ACTED_IN]->(m), (a:Actor)-[ACTED_IN]->(:Movie{name:'JohnWick'});
+       (:Actor {name:'Hugo Weaving'})-[:ACTED_IN]->(m), (a)-[:ACTED_IN]->(:Movie{name:'JohnWick'});
 
 CREATE (:Actor {name: 'Mel Gibson'})-[:ACTED_IN]->(m:Movie {name: 'Mad Max'})-[:IN_GENRE]->(:Genre {name: 'Action'}),
        (:Director {name: 'George Miller'})-[:DIRECTED]->(m)<-[:RATED]-(:User {nickname: 'User666'});

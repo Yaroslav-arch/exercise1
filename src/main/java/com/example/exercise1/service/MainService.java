@@ -37,4 +37,6 @@ public interface MainService {
     void saveGenre(GenreDTO genreDTO);
 
     void saveUser(UserDTO userDTO);
+
+    void saveMovies(List<MovieDTO> movies);
 }

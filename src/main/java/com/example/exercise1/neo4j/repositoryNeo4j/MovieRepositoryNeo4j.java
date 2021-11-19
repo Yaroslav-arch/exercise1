@@ -6,6 +6,7 @@ import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MovieRepositoryNeo4j extends Neo4jRepository<MovieNeo4j, Long> {
@@ -18,4 +19,5 @@ public interface MovieRepositoryNeo4j extends Neo4jRepository<MovieNeo4j, Long> 
     @Query("MATCH (:Genre{name:$genreName})<-[:IN_GENRE]-(m:Movie) RETURN m")
     List<MovieNeo4j> getAllMoviesByGenreName(String genreName);
 
+    Optional<MovieNeo4j> findByName(String name);
 }

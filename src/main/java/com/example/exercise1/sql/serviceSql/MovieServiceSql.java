@@ -26,14 +26,20 @@ public class MovieServiceSql {
     }
 
     public List<MovieSql> getAllMoviesByActorsName(String actorName) {
-        return movieRepositorySql.getAllMoviesByActorsName(actorName);
+        return movieRepositorySql.getByActors_Name(actorName);
     }
 
     public List<MovieSql> getAllMoviesByGenreName(String genreName) {
-        return movieRepositorySql.getAllMoviesByGenreName(genreName);
+        return movieRepositorySql.getByGenres_Name(genreName);
     }
 
     public void saveMovie(MovieSql movie) {
+        movieRepositorySql.findByName(movie.getName())
+                .ifPresent(movieSql -> movieRepositorySql.delete(movie));
         movieRepositorySql.save(movie);
+    }
+
+    public void saveMovies(List<MovieSql> movies) {
+        movies.forEach(this::saveMovie);
     }
 }

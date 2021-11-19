@@ -20,7 +20,7 @@ public class MovieRepositorySqlTest {
         String actorName = "Keanu Reeves";
         String movieName = "Matrix";
         String movieName1 = "John Wick";
-        List<MovieSql> movies = movieRepositorySql.getAllMoviesByActorsName(actorName);
+        List<MovieSql> movies = movieRepositorySql.getByActors_Name(actorName);
 
         Assertions.assertEquals(2, movies.size());
         Assertions.assertNotEquals(movies.get(0), movies.get(1));
@@ -33,7 +33,7 @@ public class MovieRepositorySqlTest {
         String genreName = "action";
         String movieName = "Matrix";
         String movieName1 = "John Wick";
-        List<MovieSql> movies = movieRepositorySql.getAllMoviesByGenreName(genreName);
+        List<MovieSql> movies = movieRepositorySql.getByGenres_Name(genreName);
 
         Assertions.assertEquals(2, movies.size());
         Assertions.assertNotEquals(movies.get(0), movies.get(1));

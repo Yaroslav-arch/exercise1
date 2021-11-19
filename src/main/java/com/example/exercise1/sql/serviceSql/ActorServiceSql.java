@@ -22,7 +22,7 @@ public class ActorServiceSql {
     }
 
     public List<ActorSql> getAllActorsByMovieName(String movieName) {
-        return actorRepositorySql.getAllActorsByMovieName(movieName);
+        return actorRepositorySql.getByMovies_Name(movieName);
     }
 
     public void saveActor(ActorSql actor) {

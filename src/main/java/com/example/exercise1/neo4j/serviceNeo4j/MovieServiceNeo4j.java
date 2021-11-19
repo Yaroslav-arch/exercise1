@@ -33,6 +33,12 @@ public class MovieServiceNeo4j {
     }
 
     public void saveMovie(MovieNeo4j movie) {
+        movieRepositoryNeo4j.findByName(movie.getName())
+                .ifPresent(movieNeo4j -> movieRepositoryNeo4j.delete(movie));
         movieRepositoryNeo4j.save(movie);
+    }
+
+    public void saveMovies(List<MovieNeo4j> movies) {
+        movies.forEach(this::saveMovie);
     }
 }

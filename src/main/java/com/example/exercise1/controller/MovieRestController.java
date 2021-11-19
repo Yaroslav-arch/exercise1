@@ -43,7 +43,12 @@ public class MovieRestController {
     }
 
     @PostMapping("/save")
-    public void saveMovie(@RequestBody MovieDTO movieDTO){
+    public void saveMovie(@RequestBody MovieDTO movieDTO) {
         mainService.saveMovie(movieDTO);
+    }
+
+    @PostMapping("/all/save")
+    public void saveMovies(@RequestBody List<MovieDTO> movies){
+        mainService.saveMovies(movies);
     }
 }
