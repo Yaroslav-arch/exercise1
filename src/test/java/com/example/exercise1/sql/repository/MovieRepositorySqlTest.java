@@ -5,8 +5,10 @@ import com.example.exercise1.sql.repositorySql.MovieRepositorySql;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -57,6 +59,7 @@ public class MovieRepositorySqlTest {
     }
 
     @Test
+    @Transactional
     public void saveMovieTest() {
         String movieName = "Some Movie Name";
         MovieSql movie = MovieSql.builder()
@@ -71,5 +74,43 @@ public class MovieRepositorySqlTest {
         movie.setId(savedMovie.getId());
         Assertions.assertEquals(movie, savedMovie);
         assertThat(savedMovie).usingRecursiveComparison().isEqualTo(savedMovie);
+    }
+
+    @Test
+    @Transactional
+    public void saveAllTest() {
+        MovieSql movie1 = MovieSql.builder()
+                .name("Movie1")
+                .duration(90)
+                .build();
+        MovieSql movie2 = MovieSql.builder()
+                .name("Movie2")
+                .duration(85)
+                .build();
+        MovieSql movie3 = MovieSql.builder()
+                .name("Movie3")
+                .duration(95)
+                .build();
+        List<MovieSql> movies = Arrays.asList(movie1, movie2, movie3);
+        movieRepositorySql.saveAll(movies);
+        List<MovieSql> found = movieRepositorySql.findAll();
+
+        Assertions.assertTrue(found.stream()
+                .map(MovieSql::getName)
+                .anyMatch(movie1.getName()::equals));
+
+        Assertions.assertTrue(found.stream()
+                .map(MovieSql::getName)
+                .anyMatch(movie2.getName()::equals));
+
+        Assertions.assertTrue(found.stream()
+                .map(MovieSql::getName)
+                .anyMatch(movie3.getName()::equals));
+    }
+
+    @Test
+    public void findAllTest(){
+        List<MovieSql> found = movieRepositorySql.findAll();
+        Assertions.assertEquals(2,found.size());
     }
 }

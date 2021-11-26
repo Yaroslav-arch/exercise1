@@ -1,6 +1,7 @@
 package com.example.exercise1.controller;
 
 import com.example.exercise1.dto.MovieDTO;
+import com.example.exercise1.dto.MovieDtoList;
 import com.example.exercise1.exception.MovieRestControllerNullException;
 import com.example.exercise1.service.MainService;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class MovieRestController {
     }
 
     @GetMapping("/all")
-    public List<MovieDTO> getAllMovies() {
+    public MovieDtoList getAllMovies() {
         return mainService.getAllMovies();
     }
 
@@ -48,7 +49,7 @@ public class MovieRestController {
     }
 
     @PostMapping("/all/save")
-    public void saveMovies(@RequestBody List<MovieDTO> movies){
+    public void saveMovies(@RequestBody List<MovieDTO> movies) {
         mainService.saveMovies(movies);
     }
 }

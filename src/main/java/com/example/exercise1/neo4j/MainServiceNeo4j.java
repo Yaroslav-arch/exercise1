@@ -53,8 +53,8 @@ public class MainServiceNeo4j implements MainService {
     }
 
     @Override
-    public List<MovieDTO> getAllMovies() {
-        return movieServiceNeo4j.getAllMovies().stream().map(converter::fromMovieToDto).collect(Collectors.toList());
+    public MovieDtoList getAllMovies() {
+        return new MovieDtoList(movieServiceNeo4j.getAllMovies().stream().map(converter::fromMovieToDto).collect(Collectors.toList()));
     }
 
     @Override

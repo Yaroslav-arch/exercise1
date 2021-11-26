@@ -18,7 +18,7 @@ public interface MainService {
 
     GenreDTO getGenreByName(String name);
 
-    List<MovieDTO> getAllMovies();
+    MovieDtoList getAllMovies();
 
     MovieDTO getMovieByName(String name);
 

@@ -23,7 +23,6 @@ public class DatasourceConfiguration {
 
     @Configuration
     @ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "false", matchIfMissing = true)
-
     public static class Neo4jConfig {
 
         @Bean

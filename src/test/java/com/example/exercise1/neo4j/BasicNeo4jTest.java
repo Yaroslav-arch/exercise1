@@ -1,6 +1,5 @@
 package com.example.exercise1.neo4j;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.neo4j.harness.Neo4j;
 import org.neo4j.harness.Neo4jBuilders;

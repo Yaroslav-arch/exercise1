@@ -52,8 +52,8 @@ public class MainServiceSql implements MainService {
     }
 
     @Override
-    public List<MovieDTO> getAllMovies() {
-        return movieServiceSql.getAllMovies().stream().map(converter::fromMovieToDTO).collect(Collectors.toList());
+    public MovieDtoList getAllMovies() {
+        return new MovieDtoList(movieServiceSql.getAllMovies().stream().map(converter::fromMovieToDTO).collect(Collectors.toList()));
     }
 
     @Override

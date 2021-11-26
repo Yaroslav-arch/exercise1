@@ -3,6 +3,7 @@ package com.example.exercise1.sql.serviceSql;
 import com.example.exercise1.sql.entitySql.MovieSql;
 import com.example.exercise1.sql.repositorySql.MovieRepositorySql;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -33,6 +34,7 @@ public class MovieServiceSql {
         return movieRepositorySql.getByGenres_Name(genreName);
     }
 
+    @Transactional
     public void saveMovie(MovieSql movie) {
         movieRepositorySql.findByName(movie.getName())
                 .ifPresent(movieSql -> movieRepositorySql.delete(movie));
