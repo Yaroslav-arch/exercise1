@@ -1,13 +1,15 @@
 package com.example.exercise1.sql.entitySql;
 
 import lombok.Data;
+import org.springframework.context.annotation.Profile;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "users")
+@Profile("postgres")
 public class UserSql {
 
     @Id

@@ -5,16 +5,18 @@ import com.example.exercise1.sql.MainServiceSql;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class DatasourceConfiguration {
 
     @Configuration
-    @ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "true")
+//    @ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "true")
 
         public static class SqlConfig {
 
         @Bean
+        @Profile("neo4j")
         public MainServiceSql createSqlMainService(){
             return new MainServiceSql();
         }
@@ -22,10 +24,11 @@ public class DatasourceConfiguration {
     }
 
     @Configuration
-    @ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "false", matchIfMissing = true)
+//    @ConditionalOnProperty(prefix = "datasource", name = "rdbms", havingValue = "false", matchIfMissing = true)
     public static class Neo4jConfig {
 
         @Bean
+        @Profile("postgres")
         public MainServiceNeo4j createNeo4jMainService(){
             return new MainServiceNeo4j();
         }

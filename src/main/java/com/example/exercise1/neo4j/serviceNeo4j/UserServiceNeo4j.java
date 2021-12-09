@@ -2,12 +2,14 @@ package com.example.exercise1.neo4j.serviceNeo4j;
 
 import com.example.exercise1.neo4j.entityNeo4j.UserNeo4j;
 import com.example.exercise1.neo4j.repositoryNeo4j.UserRepositoryNeo4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.List;
 
 @Service
+@Profile("neo4j")
 public class UserServiceNeo4j {
     private final UserRepositoryNeo4j userRepositoryNeo4j;
 
