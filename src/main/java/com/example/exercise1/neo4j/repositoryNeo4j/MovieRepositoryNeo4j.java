@@ -1,7 +1,6 @@
 package com.example.exercise1.neo4j.repositoryNeo4j;
 
 import com.example.exercise1.neo4j.entityNeo4j.MovieNeo4j;
-import org.springframework.context.annotation.Profile;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.stereotype.Repository;
@@ -10,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Profile("neo4j")
 public interface MovieRepositoryNeo4j extends Neo4jRepository<MovieNeo4j, Long> {
 
     MovieNeo4j getMovieByName(String name);

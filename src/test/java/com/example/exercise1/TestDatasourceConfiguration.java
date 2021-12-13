@@ -1,4 +1,4 @@
-package com.example.exercise1.configuration;
+package com.example.exercise1;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-public class DatasourceConfiguration {
+public class TestDatasourceConfiguration {
 
     @Configuration
     @Profile("postgres")

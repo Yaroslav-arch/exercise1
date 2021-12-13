@@ -5,11 +5,13 @@ import com.example.exercise1.sql.repositorySql.ActorRepositorySql;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import javax.inject.Inject;
 import java.util.List;
 
-@SpringBootTest(properties = {"datasource.rdbms=true"})
+@SpringBootTest
+@ActiveProfiles("postgres")
 public class ActorRepositorySqlTest {
 
     @Inject

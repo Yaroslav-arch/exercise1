@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.data.neo4j.DataNeo4jTest;
 import javax.inject.Inject;
 import java.util.List;
 
-@DataNeo4jTest(properties = {"datasource.rdbms=false"})
+@DataNeo4jTest
 class ActorRepositoryNeo4JTest extends BasicNeo4jTest {
 
     @Inject

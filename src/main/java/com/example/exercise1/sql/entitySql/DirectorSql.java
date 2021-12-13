@@ -1,7 +1,6 @@
 package com.example.exercise1.sql.entitySql;
 
 import lombok.Data;
-import org.springframework.context.annotation.Profile;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "director")
-@Profile("postgres")
 public class DirectorSql {
 
     @Id

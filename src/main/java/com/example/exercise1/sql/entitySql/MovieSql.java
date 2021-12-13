@@ -1,7 +1,6 @@
 package com.example.exercise1.sql.entitySql;
 
 import lombok.*;
-import org.springframework.context.annotation.Profile;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "movie")
-@Profile("postgres")
 public class MovieSql {
 
     @Id

@@ -2,14 +2,12 @@ package com.example.exercise1.neo4j.serviceNeo4j;
 
 import com.example.exercise1.neo4j.entityNeo4j.MovieNeo4j;
 import com.example.exercise1.neo4j.repositoryNeo4j.MovieRepositoryNeo4j;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.List;
 
 @Service
-@Profile("neo4j")
 public class MovieServiceNeo4j {
     private final MovieRepositoryNeo4j movieRepositoryNeo4j;
 

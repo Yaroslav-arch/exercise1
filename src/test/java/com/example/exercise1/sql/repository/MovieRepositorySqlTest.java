@@ -5,6 +5,7 @@ import com.example.exercise1.sql.repositorySql.MovieRepositorySql;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
@@ -13,7 +14,8 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(properties = {"datasource.rdbms=true"})
+@SpringBootTest
+@ActiveProfiles("postgres")
 public class MovieRepositorySqlTest {
 
     @Inject

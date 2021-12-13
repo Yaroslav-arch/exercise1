@@ -2,14 +2,12 @@ package com.example.exercise1.sql.serviceSql;
 
 import com.example.exercise1.sql.entitySql.ActorSql;
 import com.example.exercise1.sql.repositorySql.ActorRepositorySql;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.List;
 
 @Service
-@Profile("postgres")
 public class ActorServiceSql {
 
     private final ActorRepositorySql actorRepositorySql;

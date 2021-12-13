@@ -4,11 +4,15 @@ import com.example.exercise1.dto.*;
 import com.example.exercise1.neo4j.serviceNeo4j.*;
 import com.example.exercise1.service.MainService;
 import com.example.exercise1.utils.DTOConverterNeo4j;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@Profile("neo4j")
 public class MainServiceNeo4j implements MainService {
     @Inject
     private ActorServiceNeo4j actorServiceNeo4j;

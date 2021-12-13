@@ -4,11 +4,15 @@ import com.example.exercise1.dto.*;
 import com.example.exercise1.service.MainService;
 import com.example.exercise1.sql.serviceSql.*;
 import com.example.exercise1.utils.DTOConverterSQL;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@Profile("postgres")
 public class MainServiceSql implements MainService {
 
     @Inject

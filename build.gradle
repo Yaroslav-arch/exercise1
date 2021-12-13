@@ -29,6 +29,7 @@ dependencies {
 	implementation group: 'com.h2database', name: 'h2', version: '1.4.200'
 	implementation 'org.postgresql:postgresql:42.3.1'
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+	implementation 'com.guicedee.services:sl4j:1.0.13.5-jre14'
 
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
